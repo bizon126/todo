@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TaskListService} from "../shared/task-list.service";
 
 @Component({
   selector: 'app-new-task',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class NewTaskComponent {
   public newTask: string = '';
+
+  constructor(private taskListSrv: TaskListService) {
+  }
+
+  public onEnter() {
+    this.taskListSrv.addTask(this.newTask);
+    console.log('enter');
+  }
 }

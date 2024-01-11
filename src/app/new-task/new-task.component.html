@@ -1,6 +1,6 @@
 <mat-form-field class="example-form-field">
   <mat-label>Введите новую задачу</mat-label>
-  <input matInput type="text" [(ngModel)]="newTask">
+  <input matInput type="text" [(ngModel)]="newTask" (keyup.enter)="onEnter()">
   <button *ngIf="newTask" matSuffix mat-icon-button aria-label="Clear" (click)="newTask=''">
     <mat-icon>close</mat-icon>
   </button>
