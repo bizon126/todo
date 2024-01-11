@@ -6,12 +6,15 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared/shared/shared.module";
 import { NewTaskComponent } from './new-task/new-task.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import {TaskListService} from "./shared/task-list.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,7 @@ import { NewTaskComponent } from './new-task/new-task.component';
     SharedModule
 
   ],
-  providers: [],
+  providers: [TaskListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
