@@ -1,6 +1,9 @@
 <mat-selection-list>
 
-  <mat-list-option *ngFor="let task of taskList">{{task}} 111</mat-list-option>
-  <mat-list-option>234234234</mat-list-option>
+  <div *ngFor="let task of taskList" (click)="onClick(task)">
+    <mat-list-option *ngIf="task.status">
+      {{  task.task }}
+    </mat-list-option>
+  </div>
 
 </mat-selection-list>

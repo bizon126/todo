@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskListService} from "../shared/task-list.service";
+import {TaskModel} from "../shared/task.model";
+import {Event} from "@angular/router";
 
 @Component({
   selector: 'app-task-list',
@@ -8,7 +10,7 @@ import {TaskListService} from "../shared/task-list.service";
 })
 export class TaskListComponent implements OnInit{
 
-  public taskList: string[] = [];
+  public taskList: TaskModel[] = [];
 
   constructor(private taskListSrv: TaskListService) {
   }
@@ -18,9 +20,15 @@ export class TaskListComponent implements OnInit{
     this.taskListSrv.wasUpdated.subscribe(
       () => {
         this.taskList = this.taskListSrv.getTaskList();
+        console.log(this.taskList);
+
       }
     )
-    console.log(this.taskList);
+  }
+
+  onClick(event: TaskModel) {
+    event.status = !event.status;
+    this.taskListSrv.wasUpdated.emit();
   }
 
 }

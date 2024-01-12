@@ -14,6 +14,6 @@ export class NewTaskComponent {
 
   public onEnter() {
     this.taskListSrv.addTask(this.newTask);
-    console.log('enter');
+    this.newTask = '';
   }
 }
